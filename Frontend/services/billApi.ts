@@ -46,9 +46,9 @@ export async function uploadAndExtractBill(imageUri: string): Promise<BillData> 
 
   console.log(`📡 Uploading bill to ${API_ENDPOINTS.EXTRACT_BILL}...`);
 
-  // 45s timeout for AI Vision processing
+  // 75s timeout for AI Vision processing & Render free-tier cold starts
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 45000);
+  const timeoutId = setTimeout(() => controller.abort(), 75000);
 
   try {
     const response = await fetch(API_ENDPOINTS.EXTRACT_BILL, {
@@ -149,7 +149,7 @@ export async function uploadAndExtractBill(imageUri: string): Promise<BillData> 
   } catch (error: any) {
     clearTimeout(timeoutId);
     if (error.name === 'AbortError') {
-      throw new Error('Request timed out. The Vision AI model took too long to respond.');
+      throw new Error('Request timed out. The server or AI model took too long to respond. Please retry.');
     }
     console.error('❌ uploadAndExtractBill error:', error);
     throw error;
