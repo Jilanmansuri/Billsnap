@@ -1,15 +1,5 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform,
-  Alert,
-  ActivityIndicator,
-} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, Alert, ActivityIndicator, } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -20,21 +10,11 @@ import { BillItemRow } from '@/components/editor/BillItemRow';
 import { BillSummary } from '@/components/editor/BillSummary';
 import { OriginalBillPreview } from '@/components/editor/OriginalBillPreview';
 import { saveVerifiedBill, updateSavedBill } from '@/services/billApi';
-
+      
 export default function ResultScreen() {
   const router = useRouter();
   const { imageUri, id, mode } = useLocalSearchParams<{ imageUri?: string; id?: string; mode?: string }>();
-  const {
-    currentBill,
-    setCurrentBill,
-    saveBill,
-    updateItemInCurrentBill,
-    addItemToCurrentBill,
-    removeItemFromCurrentBill,
-    updateTax,
-    updateDiscount,
-    updateCurrency,
-  } = useBill();
+  const { currentBill, setCurrentBill, saveBill, updateItemInCurrentBill, addItemToCurrentBill, removeItemFromCurrentBill, updateTax, updateDiscount, updateCurrency, } = useBill();
 
   // Fullscreen original bill preview modal state
   const [showImageModal, setShowImageModal] = useState(false);

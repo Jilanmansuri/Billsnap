@@ -58,7 +58,7 @@ export const SAMPLE_EXTRACTED_BILL: BillData = {
   id: 'bill-extracted-new',
   billNumber: 'INV-2026-089',
   date: '2026-09-04',
-  customerName: 'Rajesh Sharma',
+  customerName: 'roky Sharma',
   category: 'General Store',
   items: [
     { id: 'item-1', name: 'Basmati Rice (5kg)', quantity: 1, price: 450, total: 450 },
